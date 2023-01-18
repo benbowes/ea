@@ -1,5 +1,7 @@
 # Code example
 
+## After cloning the project, install the dependencies (requires at least node 14)
+
 ### `npm i`
 
 ## Available Scripts
