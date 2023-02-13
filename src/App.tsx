@@ -31,8 +31,8 @@ export function App() {
     return (
       <ErrorHandler>
         <>
-          There was a problem loading the data - the results of the request came
-          up as "".
+          Error: There was a problem loading the data (Results of the request
+          came up as "")
         </>
       </ErrorHandler>
     );
@@ -80,11 +80,10 @@ export function App() {
         ))}
       </ul>
       <ErrorHandler>
-        <>
-          If you are unhappy with these results - I am not surprised. This has
-          to be the crappiest server ever. If you would like to see if a
-          different result is available, please refesh the page.
-        </>
+        <p>
+          Unhappy with these results? I am not surprised. Refresh the page for a
+          different result.
+        </p>
       </ErrorHandler>
     </>
   );

@@ -19,18 +19,19 @@
   border-radius: 0.25rem;
 }
 
-.reload-button:focus {
+.reload-button:focus,
+.reload-button:hover {
   color: #171e29;
+  background-color: white;
 }
 
 .reload-button:hover {
-  background-color: #3385ff;
+  color: #171e29;
   border-color: #3385ff;
-  fill: #06f;
 }
 
 .reload-button:active {
-  background-color: #3385ff;
+  background-color:royalblue;
   border-color: #3385ff;
-  fill: #06f;
+  color: white;
 }

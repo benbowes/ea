@@ -5,9 +5,7 @@ export const ErrorHandler: React.FC<{ children: ReactElement }> = ({
   children,
 }) => (
   <div className="alert">
-    {children}
-    <br />
-    &nbsp;
+    <p>{children}</p>
     <br />
     <button className="reload-button" onClick={() => window.location.reload()}>
       Refresh page
