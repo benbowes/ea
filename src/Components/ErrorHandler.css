@@ -1,4 +1,11 @@
 /* plain CSS... I have a CSS in JS example here: https://github.com/benbowes/ae */
+
+.alert {
+  padding: 1rem;
+  background: lavender;
+  border-radius: 0.5rem;
+}
+
 .reload-button {
   background-color: #06f;
   border: 2px solid #06f;
@@ -9,6 +16,7 @@
   text-decoration: none;
   user-select: none;
   touch-action: manipulation;
+  border-radius: 0.25rem;
 }
 
 .reload-button:focus {

@@ -4,7 +4,7 @@ import "./ErrorHandler.css";
 export const ErrorHandler: React.FC<{ children: ReactElement }> = ({
   children,
 }) => (
-  <div>
+  <div className="alert">
     {children}
     <br />
     &nbsp;

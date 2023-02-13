@@ -30,7 +30,10 @@ export function App() {
   if (!hasData)
     return (
       <ErrorHandler>
-        <>There was a problem loading the data.</>
+        <>
+          There was a problem loading the data - the results of the request came
+          up as "".
+        </>
       </ErrorHandler>
     );
 
@@ -78,8 +81,9 @@ export function App() {
       </ul>
       <ErrorHandler>
         <>
-          If you are unhappy with these results; not surprised. Crappiest server
-          ever lol. To get a different result, please refesh the page.
+          If you are unhappy with these results - I am not surprised. This has
+          to be the crappiest server ever. If you would like to see if a
+          different result is available, please refesh the page.
         </>
       </ErrorHandler>
     </>
