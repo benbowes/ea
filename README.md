@@ -1,5 +1,7 @@
 # Code example
 
+Built with Create React App
+
 ## After cloning the project, install the dependencies
 
 ### `npm i`

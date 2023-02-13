@@ -1,18 +1,13 @@
+/* plain CSS... I have a CSS in JS example here: https://github.com/benbowes/ae */
 .reload-button {
-  align-items: center;
   background-color: #06f;
   border: 2px solid #06f;
   color: #fff;
   cursor: pointer;
-  height: 48px;
-  justify-content: center;
-  min-width: 140px;
-  outline: 0;
-  padding: 0 17px;
-  text-align: center;
+  appearance: none;
+  padding: 0.5rem 1rem;
   text-decoration: none;
   user-select: none;
-  -webkit-user-select: none;
   touch-action: manipulation;
 }
 
