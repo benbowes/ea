@@ -10,7 +10,7 @@ export const ErrorHandler: React.FC<{ children: ReactElement }> = ({
     &nbsp;
     <br />
     <button className="reload-button" onClick={() => window.location.reload()}>
-      Please refresh the page
+      Refresh page
     </button>
   </div>
 );

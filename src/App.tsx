@@ -20,12 +20,17 @@ export function App() {
   const hasData = Array.isArray(data);
   const items: Output[] = transformData(hasData ? data : []);
 
-  if (error) return <ErrorHandler>{error.message}</ErrorHandler>;
+  if (error)
+    return (
+      <ErrorHandler>
+        <>{error.message}.</>
+      </ErrorHandler>
+    );
   if (isLoading) return <div>Loading...</div>;
   if (!hasData)
     return (
       <ErrorHandler>
-        <>There was a problem loading the data</>
+        <>There was a problem loading the data.</>
       </ErrorHandler>
     );
 
@@ -71,6 +76,12 @@ export function App() {
           </React.Fragment>
         ))}
       </ul>
+      <ErrorHandler>
+        <>
+          If you are unhappy with these results; not surprised. Crappiest server
+          ever lol. To get a different result, please refesh the page.
+        </>
+      </ErrorHandler>
     </>
   );
 }
