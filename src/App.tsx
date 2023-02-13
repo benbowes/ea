@@ -1,9 +1,76 @@
 import React from "react";
-import { input } from "./input";
-import { getOutput } from "./transformData";
+import useSWR from "swr";
+import { Input, Output } from "./types";
+import { transformData } from "./helpers/transformData";
+import { ErrorHandler } from "./Components";
+import "./App.css";
 
-function App() {
-  return <pre>{JSON.stringify(getOutput(input), null, 2)}</pre>;
+const fetcher = (url: string) =>
+  fetch(url).then((res) => {
+    if (!res.ok) throw new Error(`Error: ${res.statusText} (${res.status})`);
+    return res.json();
+  });
+
+export function App() {
+  const { data, error, isLoading } = useSWR<Input[]>(
+    "http://localhost:80",
+    fetcher
+  );
+
+  const hasData = Array.isArray(data);
+  const items: Output[] = transformData(hasData ? data : []);
+
+  if (error) return <ErrorHandler>{error.message}</ErrorHandler>;
+  if (isLoading) return <div>Loading...</div>;
+  if (!hasData)
+    return (
+      <ErrorHandler>
+        <>There was a problem loading the data</>
+      </ErrorHandler>
+    );
+
+  return (
+    <>
+      <h1>Record Labels</h1>
+      <ul>
+        {items.map((item, itemIndex) => (
+          <React.Fragment key={`${item}_${itemIndex}`}>
+            <li className="record-label">
+              {item.recordLabel !== "" ? item.recordLabel : "Unsigned"}
+            </li>
+            <li>
+              <ul>
+                {item.bands.map((band, bandIndex) => (
+                  <React.Fragment key={`${band}_${bandIndex}`}>
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>Band</th>
+                          <th>Festivals</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>{band.name}</td>
+                          {band.festivals.length > 0 && (
+                            <td>
+                              {band.festivals.map((festival, festivalIndex) => (
+                                <div key={`${festival}_${festivalIndex}`}>
+                                  {festival}
+                                </div>
+                              ))}
+                            </td>
+                          )}
+                        </tr>
+                      </tbody>
+                    </table>
+                  </React.Fragment>
+                ))}
+              </ul>
+            </li>
+          </React.Fragment>
+        ))}
+      </ul>
+    </>
+  );
 }
-
-export default App;
