@@ -80,10 +80,10 @@ export function App() {
         ))}
       </ul>
       <ErrorHandler>
-        <p>
+        <>
           Unhappy with these results? I am not surprised. Refresh the page for a
           different result.
-        </p>
+        </>
       </ErrorHandler>
     </>
   );
